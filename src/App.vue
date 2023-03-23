@@ -5,11 +5,12 @@ import { Movie } from "./types/Movie";
 import getData from "./utils/fetch";
 
 const movie = ref<Movie>();
+const URL = `https://api.themoviedb.org/3/movie/550?api_key=${
+  import.meta.env.VITE_API_KEY
+}`;
 
 onMounted(async () => {
-  const resp = await getData(
-    "https://api.themoviedb.org/3/movie/550?api_key=eab74dfeeef5ea34b530f7322b1d4ef7"
-  );
+  const resp = await getData(URL);
   console.log("🚀 ~ file: App.vue:8 ~ onMounted ~ resp:", resp);
   movie.value = resp;
 });
