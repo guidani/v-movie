@@ -11,7 +11,6 @@ const URL = `https://api.themoviedb.org/3/movie/550?api_key=${
 
 onMounted(async () => {
   const resp = await getData(URL);
-  console.log("🚀 ~ file: App.vue:8 ~ onMounted ~ resp:", resp);
   movie.value = resp;
 });
 </script>
