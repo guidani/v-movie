@@ -1,12 +1,19 @@
 <template>
   <h1 class="text-2xl">Filmes Populares</h1>
   <div class="grade flex flex-wrap gap-2 justify-between">
-    <div v-for="movie in movies">
-      <p>{{ movie.id }}</p>
-      <!-- <RouterLink to="/movie-details/movie.id">see more</RouterLink>
-      <RouterLink :to=`"/movie-details/"${movie.id}`>see more</RouterLink> -->
-      <Portrait :title="movie?.title" :poster_path="movie?.poster_path" />
-    </div>
+    
+      <router-link
+        v-for="movie in movies"
+        :to="{
+          name: 'movie-details',
+          params: {
+            id: movie.id,
+          },
+        }"
+      >
+        <Portrait :title="movie?.title" :poster_path="movie?.poster_path" />
+      </router-link>
+    
   </div>
 </template>
 
