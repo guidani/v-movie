@@ -25,6 +25,7 @@ const top_rated_movies = ref<Movie[]>();
 
 onMounted(async () => {
   const top_rated_movies_response = await getTopRated();
+  // @ts-expect-error
   top_rated_movies.value = top_rated_movies_response?.results;
 });
 </script>

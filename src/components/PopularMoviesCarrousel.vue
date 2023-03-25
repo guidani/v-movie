@@ -25,6 +25,7 @@ const popular_movies = ref<Movie[]>();
 
 onMounted(async () => {
   const popular_movies_response = await getPopularMovies();
+  // @ts-expect-error
   popular_movies.value = popular_movies_response?.results;
 });
 </script>
