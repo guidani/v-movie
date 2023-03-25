@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import MovieCard from "../components/MovieCard.vue";
+import MovieCard from "../components/MovieDetails.vue";
 import { Movie } from "../types/Movie";
 import getData from "../utils/fetch";
 

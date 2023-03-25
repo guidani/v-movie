@@ -1,4 +1,4 @@
-// Get the primary information about a movie.
+// Get the latest movie added.
 
 import { Movie } from "../types/Movie";
 
