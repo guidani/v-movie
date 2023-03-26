@@ -1,4 +1,5 @@
 <template>
+  <Hero/>
   <Section :title="'Filmes Populares'">
     <PopularMoviesCarrousel />
   </Section>
@@ -8,6 +9,7 @@
 </template>
 
 <script setup lang="ts">
+import Hero from "../components/Hero.vue";
 import PopularMoviesCarrousel from "../components/PopularMoviesCarrousel.vue";
 import Section from "../components/Section.vue";
 import TopRatedMoviesCarrousel from "../components/TopRatedMoviesCarrousel.vue";
