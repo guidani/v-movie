@@ -1,5 +1,5 @@
 <template>
-  <Hero/>
+  <!-- <Hero/> -->
   <Section :title="'Filmes Populares'">
     <PopularMoviesCarrousel />
   </Section>

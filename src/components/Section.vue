@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2 class="text-2xl">{{ title }}</h2>
+    <h2 class="text-2xl dark:text-white">{{ title }}</h2>
     <slot></slot>
   </section>
 </template>

@@ -3,9 +3,11 @@ import Navbar from "./components/UI/Navbar.vue";
 </script>
 
 <template>
-  <div class="container mx-auto">
-    <Navbar />
-    <RouterView></RouterView>
+  <div class="w-full min-h-screen dark:bg-slate-900">
+    <div class="container mx-auto">
+      <Navbar />
+      <RouterView></RouterView>
+    </div>
   </div>
 </template>
 

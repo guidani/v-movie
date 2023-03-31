@@ -19,11 +19,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container mx-auto min-h-full bg-slate-400">
-    <h1 class="text-4xl">Detalhes</h1>
+  <div class="container mx-auto min-h-full dark:text-white px-2">
+    <h1 class="text-4xl">{{ movie?.title  }}</h1>
   </div>
   <div>
-    <p>{{ $route.params.id }}</p>
     <MovieCard
       :overview="movie?.overview"
       :release_date="movie?.release_date"
