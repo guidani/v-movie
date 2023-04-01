@@ -20,7 +20,7 @@ onMounted(async () => {
 
 <template>
   <div class="container mx-auto min-h-full dark:text-white px-2">
-    <h1 class="text-4xl">{{ movie?.title  }}</h1>
+    <h1 class="text-4xl">{{ movie?.title }}</h1>
   </div>
   <div>
     <MovieCard

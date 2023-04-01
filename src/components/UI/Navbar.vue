@@ -1,6 +1,7 @@
 <template>
   <nav class="flex justify-between py-4 px-2">
-    <RouterLink to="/" class="dark:text-white text-2xl">V-Movies</RouterLink>
+    <RouterLink to="/" class="dark:text-white">V-Movies</RouterLink>
+    <RouterLink to="/favorites" class="dark:text-white">Favoritos</RouterLink>
     <button @click="toggleDark()">{{ isDark ? "light" : "dark" }}</button>
   </nav>
 </template>
