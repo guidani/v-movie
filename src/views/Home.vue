@@ -3,6 +3,7 @@
   <Section :title="'Filmes Populares'">
     <PopularMoviesCarrousel />
   </Section>
+  <div class="h-4"></div>
   <Section :title="'Melhores Avaliados'">
     <TopRatedMoviesCarrousel />
   </Section>

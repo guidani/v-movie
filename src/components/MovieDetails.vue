@@ -22,7 +22,7 @@ defineProps([
   "release_date",
   "overview",
   "vote_average",
-  "runtime"
+  "runtime",
 ]);
 </script>
 

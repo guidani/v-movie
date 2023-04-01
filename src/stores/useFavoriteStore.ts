@@ -7,7 +7,7 @@ type TfavoriteMovie = {
 
 export const useFavoriteStore = defineStore("favorites", {
   state: () => ({
-    localFavorites: JSON.parse(localStorage.getItem("local-favorites") || "[]"),
+    localFavorites: <TfavoriteMovie[]>JSON.parse(localStorage.getItem("local-favorites") || "[]"),
   }),
   getters: {
     getLocalFavorites: (state) => state.localFavorites,
@@ -15,15 +15,16 @@ export const useFavoriteStore = defineStore("favorites", {
       state.localFavorites.some(
         (favorite: { id: number }) => favorite.id === movie.id
       ),
-    
   },
   actions: {
+    updateLocalStorage() {
+      localStorage.setItem(
+        "local-favorites",
+        JSON.stringify(this.localFavorites)
+      );
+    },
     addToFavorite(movie: TfavoriteMovie) {
-      this.localFavorites.push(movie),
-        localStorage.setItem(
-          "local-favorites",
-          JSON.stringify(this.localFavorites)
-        );
+      this.localFavorites.push(movie), this.updateLocalStorage();
     },
     removeFromFavorite(id: number) {
       const index = this.localFavorites.findIndex(
@@ -31,10 +32,7 @@ export const useFavoriteStore = defineStore("favorites", {
       );
       if (index !== -1) {
         this.localFavorites.splice(index, 1);
-        localStorage.setItem(
-          "local-favorites",
-          JSON.stringify(this.localFavorites)
-        );
+        this.updateLocalStorage();
       }
     },
   },

@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import MovieCard from "../components/MovieDetails.vue";
+import Section from "../components/Section.vue";
+import SimilarMoviesCarrousel from "../components/SimilarMoviesCarrousel.vue";
 import Bookmark from "../components/icons/bookmark.vue";
 import BookmarkFill from "../components/icons/bookmarkFill.vue";
 import { useFavoriteStore } from "../stores/useFavoriteStore";
@@ -54,6 +56,10 @@ onMounted(async () => {
     :poster_path="movie?.poster_path"
     :runtime="movie?.runtime"
   />
+  <div class="h-4"></div>
+  <Section :title="'Filmes Similares'">
+    <SimilarMoviesCarrousel :movie_id="movie?.id" />
+  </Section>
 </template>
 
 <style scoped></style>
