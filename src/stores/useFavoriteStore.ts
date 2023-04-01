@@ -7,23 +7,34 @@ type TfavoriteMovie = {
 
 export const useFavoriteStore = defineStore("favorites", {
   state: () => ({
-    listOfFavorites: <TfavoriteMovie[]>[],
+    localFavorites: JSON.parse(localStorage.getItem("local-favorites") || "[]"),
   }),
   getters: {
-    getFavorites: (state) => state.listOfFavorites,
+    getLocalFavorites: (state) => state.localFavorites,
     isFavorite: (state) => (movie: TfavoriteMovie) =>
-      state.listOfFavorites.some((favorite) => favorite.id === movie.id),
+      state.localFavorites.some(
+        (favorite: { id: number }) => favorite.id === movie.id
+      ),
+    
   },
   actions: {
     addToFavorite(movie: TfavoriteMovie) {
-      this.listOfFavorites.push(movie);
+      this.localFavorites.push(movie),
+        localStorage.setItem(
+          "local-favorites",
+          JSON.stringify(this.localFavorites)
+        );
     },
     removeFromFavorite(id: number) {
-      const index = this.listOfFavorites.findIndex(
-        (favorite) => favorite.id === id
+      const index = this.localFavorites.findIndex(
+        (favorite: { id: number }) => favorite.id === id
       );
       if (index !== -1) {
-        this.listOfFavorites.splice(index, 1);
+        this.localFavorites.splice(index, 1);
+        localStorage.setItem(
+          "local-favorites",
+          JSON.stringify(this.localFavorites)
+        );
       }
     },
   },
