@@ -29,7 +29,7 @@ onMounted(async () => {
   <div class="my-2">
     <button
       @click="() => addToFavorite(movie?.title!)"
-      class="text-white flex items-center gap-1"
+      class="dark:text-white flex items-center gap-1"
       v-if="isFavorite(movie?.title!) === false"
     >
       <Bookmark />
@@ -37,7 +37,7 @@ onMounted(async () => {
     </button>
     <button
       @click="() => removeFromFavorite(movie?.title!)"
-      class="text-white flex items-center gap-1"
+      class="dark:text-white flex items-center gap-1"
       v-if="isFavorite(movie?.title!)"
     >
       <BookmarkFill />
