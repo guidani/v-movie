@@ -25,34 +25,35 @@ onMounted(async () => {
 <template>
   <div class="container mx-auto min-h-full dark:text-white px-2">
     <h1 class="text-4xl">{{ movie?.title }}</h1>
+
+    <div class="my-2">
+      <button
+        @click="() => addToFavorite(movie?.title!)"
+        class="dark:text-white flex items-center gap-1"
+        v-if="isFavorite(movie?.title!) === false"
+      >
+        <Bookmark />
+        Favoritar
+      </button>
+      <button
+        @click="() => removeFromFavorite(movie?.title!)"
+        class="dark:text-white flex items-center gap-1"
+        v-if="isFavorite(movie?.title!)"
+      >
+        <BookmarkFill />
+        Favoritado
+      </button>
+    </div>
   </div>
-  <div class="my-2">
-    <button
-      @click="() => addToFavorite(movie?.title!)"
-      class="dark:text-white flex items-center gap-1"
-      v-if="isFavorite(movie?.title!) === false"
-    >
-      <Bookmark />
-      Favoritar
-    </button>
-    <button
-      @click="() => removeFromFavorite(movie?.title!)"
-      class="dark:text-white flex items-center gap-1"
-      v-if="isFavorite(movie?.title!)"
-    >
-      <BookmarkFill />
-      Favoritado
-    </button>
-  </div>
-  <div>
-    <MovieCard
-      :overview="movie?.overview"
-      :release_date="movie?.release_date"
-      :title="movie?.title"
-      :vote_average="movie?.vote_average"
-      :poster_path="movie?.poster_path"
-    />
-  </div>
+
+  <MovieCard
+    :overview="movie?.overview"
+    :release_date="movie?.release_date"
+    :title="movie?.title"
+    :vote_average="movie?.vote_average"
+    :poster_path="movie?.poster_path"
+    :runtime="movie?.runtime"
+  />
 </template>
 
 <style scoped></style>

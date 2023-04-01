@@ -7,9 +7,10 @@
     />
     <div class="movie-info dark:text-white">
       <h2>{{ title }}</h2>
-      <p>Release Date: {{ release_date }}</p>
-      <p>Overview: {{ overview }}</p>
-      <p>Rating average: {{ vote_average }}</p>
+      <p>Data de lançamento: {{ release_date }}</p>
+      <p>Nota média: {{ vote_average }}</p>
+      <p>Duração: {{ runtime }} minutos</p>
+      <p>Sinopse: {{ overview }}</p>
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@ defineProps([
   "release_date",
   "overview",
   "vote_average",
+  "runtime"
 ]);
 </script>
 
